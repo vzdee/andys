@@ -1,12 +1,12 @@
 // Cambia esta fecha al momento especial ✨
-const targetDate = new Date().getTime() + 5000;
+const targetDate = new Date("2025-04-12T11:59:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
     const distance = targetDate - now;
 
     if (distance < 0) {
-        document.querySelector(".counter h1").innerText = "¡Llegó el momento!";
+        document.querySelector(".counter h1").innerText = "¡Llegó el momento, Abre la carta!";
         document.querySelector(".timebox").style.display = "none";
         return;
     }
