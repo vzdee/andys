@@ -49,6 +49,9 @@ letterContainer.addEventListener("click", () => {
     // Muestra el mensaje con algo de delay para hacerlo más lindo
     setTimeout(() => {
       message.classList.remove("hidden");
+      //Mostrar linea de tiempo
+      const timeline = document.getElementById("timeline");
+      timeline.classList.remove("hidden");
     }, 600);
   } else if (!unlocked) {
     // Vibra si no es el momento
@@ -59,6 +62,10 @@ letterContainer.addEventListener("click", () => {
   }
 });
 
-
+window.onload = function() {
+  var audio = document.getElementById("background-audio");
+  audio.volume = 0.1;  // Esto establece el volumen al 10%
+  audio.play();  // Reproduce la canción
+};
 
 
