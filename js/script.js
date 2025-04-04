@@ -1,5 +1,5 @@
 // Cambia esta fecha al momento especial ✨
-const targetDate = new Date("2025-04-12T11:59:00").getTime();
+const targetDate = new Date().getTime() + 5000;
 
 function updateCountdown() {
     const now = new Date().getTime();
@@ -26,26 +26,39 @@ setInterval(updateCountdown, 1000);
 updateCountdown();
 
 //carta
-const letter = document.getElementById("letter");
+const letterImg = document.getElementById("letter-img");
+const letterContainer = document.getElementById("letter-container");
 const message = document.getElementById("message");
 
 let unlocked = false;
 
-letter.addEventListener("click", () => {
+letterContainer.addEventListener("click", () => {
   const now = new Date().getTime();
+
   if (now >= targetDate && !unlocked) {
     unlocked = true;
-    letter.classList.remove("locked");
-    letter.classList.add("unlocked");
-    letter.innerText = "💌 Carta abierta";
-    message.classList.remove("hidden");
-  } else if (!unlocked) {
-    letter.classList.add("locked");
+
+    // Agrega clase para animar
+    letterImg.classList.add("flip-open");
+
+    // Espera la animación y luego cambia la imagen
     setTimeout(() => {
-      letter.classList.remove("locked");
-    }, 500); // Reinicia animación
+      letterImg.src = "media/sobre-abierto.png";
+    }, 300); // mitad de la animación
+
+    // Muestra el mensaje con algo de delay para hacerlo más lindo
+    setTimeout(() => {
+      message.classList.remove("hidden");
+    }, 600);
+  } else if (!unlocked) {
+    // Vibra si no es el momento
+    letterImg.classList.add("shake");
+    setTimeout(() => {
+      letterImg.classList.remove("shake");
+    }, 400);
   }
 });
+
 
 
 
