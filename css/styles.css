@@ -1,125 +1,162 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
+}
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.9)), 
-                url('https://img.freepik.com/vector-premium/fondo-feliz-cumpleanos-globos-fondo-rosa_360537-2.jpg?w=2000');
-    background-size: cover;
-    background-position: center;
-    color: #4b0082;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: #fff;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
 }
 
-/* Contenedor principal */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+/* 🎉 Sección del contador */
+.counter {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+  width: 100%;
+  max-width: 600px;
 }
 
-/* Título */
-.container h1 {
-    font-size: 40px;
-    color: #d63384;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+.counter h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-/* Contador en una sola línea */
-.contador {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px; /* Espaciado entre los bloques */
-    max-width: 600px;
-    width: 100%;
+.timebox {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-/* Cada bloque del contador */
-.contador div {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 120px;
-    transition: transform 0.2s ease-in-out;
-    flex: 1; /* Hace que todos los bloques tengan el mismo ancho */
+.time {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px 20px;
+  border-radius: 15px;
+  min-width: 80px;
+  flex: 1 1 40%;
+  max-width: 120px;
 }
 
-.contador div:hover {
-    transform: scale(1.05);
+.time p {
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
-.contador p {
-    font-size: 35px;
-    font-weight: bold;
-    margin: 0;
-    color: #4b0082;
+.time h1 {
+  font-size: 1rem;
+  margin-top: 5px;
 }
 
-.contador span {
-    font-size: 16px;
-    font-weight: 600;
-    color: #d63384;
+/* 💌 Carta interactiva con imagen */
+.letter-section {
+  margin-top: 40px;
+  text-align: center;
 }
 
-/* Mensaje final */
-.mensaje h2 {
-    font-size: 36px;
-    color: #ff1493;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    display: none; /* Se mostrará cuando el contador llegue a 0 */
+#letter-container {
+  margin: 20px auto;
+  max-width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* Animación para el mensaje final */
-@keyframes parpadeo {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
+#letter-container img {
+  width: 100%;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.mensaje.mostrar h2 {
-    display: block;
-    animation: parpadeo 1s infinite;
+#letter-container:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
-/* Timeline oculto */
-.time-line {
-    display: none; /* Inicialmente oculto */
+/* Animación de sacudida */
+.shake {
+  animation: shake 0.4s;
 }
 
-/* Responsividad */
-@media (max-width: 600px) {
-    .contador {
-        flex-wrap: nowrap;  /* Evita que los bloques bajen de línea */
-        gap: 10px;
-        max-width: 90%;
-    }
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
 
-    .contador div {
-        width: 90px;
-        padding: 10px;
-    }
+/* Mensaje al desbloquear */
+.hidden {
+  display: none;
+}
 
-    .contador p {
-        font-size: 28px;
-    }
+#message {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #ff5e7e;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 20px auto;
+  animation: fadeIn 1s ease forwards;
+}
 
-    .contador span {
-        font-size: 14px;
-    }
+#message h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
 
-    .mensaje h2 {
-        font-size: 28px;
-    }
+#message p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 Responsive */
+@media screen and (max-width: 480px) {
+  .counter {
+    padding: 20px;
+  }
+
+  .counter h1 {
+    font-size: 1.5rem;
+  }
+
+  .time {
+    padding: 10px;
+    min-width: 70px;
+  }
+
+  .time p {
+    font-size: 2rem;
+  }
+
+  .time h1 {
+    font-size: 0.9rem;
+  }
+
+  #message h2 {
+    font-size: 1.2rem;
+  }
+
+  #message p {
+    font-size: 0.95rem;
+  }
+
+  #letter-container {
+    max-width: 150px;
+  }
 }

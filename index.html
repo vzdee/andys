@@ -1,64 +1,49 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js"></script>
-    <title>Cumpleaños</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Sorpresa</title>
 </head>
 <body>
-    <section class="container">
-        <h1 id="tituloTiempoRestante">Tiempo Restante</h1>
-        <div class="contador">
-            <div>
-                <p id="Dias">00</p>
-                <span>Dias</span>
+    <section class="counter">
+        <h1>Tiempo Restante</h1>
+        <div class="timebox">
+            <div class="time">
+                <p id="days">00</p>
+                <h1>Dias</h1> 
             </div>
-            <div>
-                <p id="Horas">00</p>
-                <span>Horas</span>
+            <div class="time">
+                <p id="hours">00</p>
+                <h1>Horas</h1>
             </div>
-            <div>
-                <p id="Minutos">00</p>
-                <span>Minutos</span>
+            <div class="time">
+                <p id="minutes">00</p>
+                <h1>Minutos</h1> 
             </div>
-            <div>
-                <p id="Segundos">00</p>
-                <span>Segundos</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="mensaje">
-        <h2>¡Feliz Cumpleaños Mi Amor!</h2>
-    </section>
-
-    <section class="time-line">
-        <h1>Linea del Amor</h1>
-        <div class="evento">
-            <div class="circulo">
-                <h3>Nuestro</h3>
-                <p class="texto">lorem</p>
-            </div>
-            <div class="circulo">
-                <h3>Nuestro</h3>
-                <p class="texto">lorem</p>
-            </div>
-            <div class="circulo">
-                <h3>Nuestro</h3>
-                <p class="texto">lorem</p>
-            </div>
-            <div class="circulo">
-                <h3>Nuestro</h3>
-                <p class="texto">lorem</p>
-            </div>
-            <div class="circulo">
-                <h3>Nuestro</h3>
-                <p class="texto">lorem</p>
+            <div class="time">
+                <p id="seconds">00</p>
+                <h1>Segundos</h1>
             </div>
         </div>
     </section>
 
+    <section class="letter-section">
+        <div id="letter-container">
+            <img id="letter-img" src="img/sobre-cerrado.png" alt="Carta cerrada">
+        </div>
+        <div id="message" class="hidden">
+            <h2>💖 Para ti 💖</h2>
+            <p>
+                Esta es una pequeña muestra de todo lo que siento por ti.
+                Gracias por acompañarme en esta aventura llamada vida.
+                ¡Te amo! 💕
+            </p>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
